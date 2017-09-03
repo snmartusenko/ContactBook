@@ -127,13 +127,15 @@ let searchContact = function () {
 };
 
 let deleteContact = function (id) {
-    let contact = contactBook['id_' + id];
+    if (confirm('Are you sure?')) {
+        let contact = contactBook['id_' + id];
 
-    delete(contactBook['id_' + id]);
-    console.log(JSON.stringify(contact) + ' deleted');
+        delete(contactBook['id_' + id]);
+        console.log(JSON.stringify(contact) + ' deleted');
 
-    saveContactBook();
-    displayContacts();
+        saveContactBook();
+        displayContacts();
+    }
 };
 
 let displayContacts = function () {
